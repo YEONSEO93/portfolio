@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="../static/css/index.css">
+<title>Period.</title>
+</head>
+
+<body>
+    <section class="header">
+        <div class="header-inner">
+            <div class="container">
+                <div class="mainMenu">
+                    <div class="logo">
+                    <h1><a href="{{url_for('main.index')}}">Period.</a></h1>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="navbar_main">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-8 lg-8">
+                                <nav class="navbar navbar-custom bg-light">
+                                    <a class="navbar-brand" href="{{url_for('main.index')}}">Shop all</a>
+                                    <a class="navbar-items" href="{{url_for('main.useitems', use_id=1)}}">Single-Use</a>
+                                    <a class="navbar-items" href="{{url_for('main.useitems', use_id=2)}}">Multi-Use</a>
+                                    <a class="navbar-items" href="{{url_for('main.index')}}">Subscribe</a>
+                                    <a class="navbar-items" href="{{url_for('main.index')}}">Learn</a>
+                                </nav>
+                            </div>
+                            <div class="col-xs-6 col-md-4 lg-4">
+                                <div class="user">
+                                    <div class="login">
+                                        <a href="#none">
+                                        <img src="../static/img/img_logo.png" alt="login" width="25" height="25">
+                                        </a>
+                                    </div>
+                                    <div class="cart">
+                                        <a href="{{url_for('main.order')}}">
+                                        <img src="../static/img/img_cart.png" alt="cart" width="25" height="25">
+                                        </a>
+                                    </div>
+                                    <div class="search">
+                                        <form class="form-flex" action="{{url_for('main.search')}}">
+                                            <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="search">
+                                            <button class="btn btn-outline-danger btn-s"
+                                                type="submit">Search</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>                    
+            </div>
+        </div>
+
+    </section>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="alert alert-danger" role="alert">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %} 
+
+    {% block head %}
+            
+    {% endblock %}
+
+    <!-- main page content goes in container -->
+    <div class="container-fluid">
+        <main>
+            {% block main %}
+            
+            {% endblock %}
+        </main>
+    </div>
+    
+    <!-- subscription -->
+    <div class="jumbotron">
+        <h3>Why Subscribe?</h3>
+        <p class="lead">Save on Every Order
+            Get your must-haves at 10% off + earn 2x the rewards points! And don’t forget free shipping on orders over $50+.</p>
+        <hr class="my-2">
+        <p>With a subscription, you’ll never have to make a last minute trip to the store again.</p>
+        <p class="lead">
+
+            <ul class="list-group">
+                <li class="list-group-item"><span id="Step">Step1 ☝️</span> <br> Choose one or more products. Wide range of colours and sizes.</li>
+                <li class="list-group-item"><span id="Step">Step2 ✌️</span> <br> Choose how frequently you want your products to be delivered.</li>
+                <li class="list-group-item"><span id="Step">Step3 </span> <br> Update your subscription at anytime.</li>
+              </ul>
+              <br>
+          <a class="btn btn-danger btn-lg" href="#!" role="button">Subscribe</a>
+        </p>
+      </div>
+      
+
+      
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+
+</body>
+
+<footer>
+
+    <div class="footer__menu">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                    <h4>Shop</h4>
+                    <nav class="navbar">
+                        <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">All Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Single-Use</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Multi-Use</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Subscribe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Find a store</a>
+                        </li>
+                        </ul>
+                    </nav>
+                    <br>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                    <h4>Company</h4>
+                    <nav class="navbar">
+                        <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Our Story</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Wholesale</a>
+                        </li>
+                        </ul>
+                    </nav>
+                    <br>
+                </div>
+
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <h4>Support</h4>
+                    <nav class="navbar">
+                        <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">FAQs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Orders & Shipping</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Returns & Refunds</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                        </ul>
+                    </nav>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+</html>
+
+   
+
+
